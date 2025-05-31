@@ -3,7 +3,7 @@ async function checkNFTs() {
   const results = document.getElementById('results');
   results.innerHTML = "Checking...";
 
-  const url = `https://eth-mainnet.g.alchemy.com/v2/ioNYec_ljc_aDZeoJnd4X/getNFTs/?owner=${address}`;
+  const const url = `https://replit.com/@0xMarshall/tokentrace-backend/nfts/${address}`;`;
 
   try {
     const response = await fetch(url);
