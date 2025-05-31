@@ -3,16 +3,16 @@ async function checkNFTs() {
   const results = document.getElementById('results');
   results.innerHTML = "Checking...";
 
-  const const url = `https://replit.com/@0xMarshall/tokentrace-backend/nfts/${address}`;`;
+  const url = `https://replit.com/@0xMarshall/tokentrace-backend/nfts/${address}`; // Use your real backend URL
 
   try {
     const response = await fetch(url);
     const data = await response.json();
 
-    if (data.ownedNfts && data.ownedNfts.length > 0) {
-      results.innerHTML = `<h3>Found ${data.ownedNfts.length} NFT(s):</h3><ul>`;
-      data.ownedNfts.forEach(nft => {
-        results.innerHTML += `<li>${nft.contract.address} — Token ID: ${nft.id.tokenId}</li>`;
+    if (data.tokens && data.tokens.length > 0) {
+      results.innerHTML = `<h3>Found ${data.tokens.length} NFT(s):</h3><ul>`;
+      data.tokens.forEach(token => {
+        results.innerHTML += `<li>Token ID: ${token.tokenId} — URI: ${token.tokenURI}</li>`;
       });
       results.innerHTML += `</ul>`;
     } else {
